@@ -132,7 +132,8 @@ GameObject:
   - component: {fileID: 390557333}
   - component: {fileID: 390557331}
   - component: {fileID: 390557336}
-  m_Layer: 0
+  - component: {fileID: 390557337}
+  m_Layer: 14
   m_Name: AirPlane_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +211,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2037710717}
+  - {fileID: 1354766507}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -86.267, z: 0}
 --- !u!114 &390557336
@@ -227,6 +229,24 @@ MonoBehaviour:
   sourceCodeAsset: {fileID: 5022602860645237092, guid: 87c654f33c6fc4341b46f0750176e02d,
     type: 3}
   sourceCode: 
+--- !u!114 &390557337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390557329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520c5dfac7764629b8b35cdc3a5f3e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ClusterVR.CreatorKit.Item.Implements::ClusterVR.CreatorKit.Item.Implements.RidableItem
+  item: {fileID: 390557333}
+  seat: {fileID: 1354766507}
+  exitTransform: {fileID: 0}
+  leftGrip: {fileID: 0}
+  rightGrip: {fileID: 0}
+  avatarOverrideAnimation: {fileID: 0}
 --- !u!1001 &404073701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,6 +255,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 513158547}
     m_Modifications:
+    - target: {fileID: 915696884660140980, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242930942173064378, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636072225249820484, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093925555355131820, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171735435863103190, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4661228937373261355, guid: 6fbddc6cefe73434a858784749b092b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -300,6 +345,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_Wing Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5475202495579407505, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649996177782205959, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803292146525091746, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795161900450946775, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550584247911758978, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897754529578932353, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -321,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513158547}
   - component: {fileID: 513158548}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ModelParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +456,8 @@ GameObject:
   - component: {fileID: 726785692}
   - component: {fileID: 726785691}
   - component: {fileID: 726785690}
-  m_Layer: 0
+  - component: {fileID: 726785695}
+  m_Layer: 14
   m_Name: AirPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,8 +550,27 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 513158547}
+  - {fileID: 1171606368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726785695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726785689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520c5dfac7764629b8b35cdc3a5f3e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ClusterVR.CreatorKit.Item.Implements::ClusterVR.CreatorKit.Item.Implements.RidableItem
+  item: {fileID: 726785692}
+  seat: {fileID: 1171606368}
+  exitTransform: {fileID: 0}
+  leftGrip: {fileID: 0}
+  rightGrip: {fileID: 0}
+  avatarOverrideAnimation: {fileID: 0}
 --- !u!1001 &823704346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -484,10 +579,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2037710717}
     m_Modifications:
+    - target: {fileID: 1613910210235453823, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180944188819774296, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2495086985207381948, guid: 2baedbc69c2eced489571e515d169e3b,
         type: 3}
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_FrontControl Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495086985207381948, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3020653970252899590, guid: 2baedbc69c2eced489571e515d169e3b,
         type: 3}
@@ -544,10 +654,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3261158052758213131, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586478658086539458, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559327671212045593, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6893881767872058785, guid: 2baedbc69c2eced489571e515d169e3b,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970621831226043975, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140928383281112028, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -568,6 +703,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2037710717}
     m_Modifications:
+    - target: {fileID: 915696884660140980, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242930942173064378, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636072225249820484, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093925555355131820, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171735435863103190, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4661228937373261355, guid: 6fbddc6cefe73434a858784749b092b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -633,6 +793,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_Wing Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5475202495579407505, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649996177782205959, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803292146525091746, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795161900450946775, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550584247911758978, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897754529578932353, guid: 6fbddc6cefe73434a858784749b092b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -652,10 +842,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 513158547}
     m_Modifications:
+    - target: {fileID: 1613910210235453823, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180944188819774296, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2495086985207381948, guid: 2baedbc69c2eced489571e515d169e3b,
         type: 3}
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_FrontControl Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495086985207381948, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3020653970252899590, guid: 2baedbc69c2eced489571e515d169e3b,
         type: 3}
@@ -712,10 +917,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3261158052758213131, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586478658086539458, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559327671212045593, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6893881767872058785, guid: 2baedbc69c2eced489571e515d169e3b,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970621831226043975, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140928383281112028, guid: 2baedbc69c2eced489571e515d169e3b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -886,6 +1116,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1171606367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171606368}
+  m_Layer: 14
+  m_Name: SitPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1171606368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171606367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 726785694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1354766506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354766507}
+  m_Layer: 14
+  m_Name: SitPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1354766507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354766506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390557335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482056112
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1283,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 513158547}
     m_Modifications:
+    - target: {fileID: 996473571969870440, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025767978166778935, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191153627914200992, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974135882671696700, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215372865106082972, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6917767536970737292, guid: 3cca4066763e4c14581a41d22cb1fd71,
         type: 3}
       propertyPath: m_RootOrder
@@ -1050,6 +1367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_BackControl Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731282259997555766, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1070,6 +1392,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2037710717}
     m_Modifications:
+    - target: {fileID: 996473571969870440, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025767978166778935, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191153627914200992, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974135882671696700, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215372865106082972, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6917767536970737292, guid: 3cca4066763e4c14581a41d22cb1fd71,
         type: 3}
       propertyPath: m_RootOrder
@@ -1129,6 +1476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_BackControl Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731282259997555766, guid: 3cca4066763e4c14581a41d22cb1fd71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1251,6 +1603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_Base Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8188265680378318105, guid: 244639a8367afb447b142dfb4501e9d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8856681526164232099, guid: 244639a8367afb447b142dfb4501e9d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1371,7 +1728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2037710717}
   - component: {fileID: 2037710718}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ModelParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1435,6 +1792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TCS_Exhibition_Machine_Best_Base Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188265680378318105, guid: 244639a8367afb447b142dfb4501e9d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8856681526164232099, guid: 244639a8367afb447b142dfb4501e9d7,
         type: 3}

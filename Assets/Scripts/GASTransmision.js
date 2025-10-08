@@ -83,7 +83,14 @@ function sendPositionRequest() {
 $.onExternalCallEnd((response, meta, errorReason) => {
   // response: サーバーから返されたオブジェクト { verify(認証トークン), response(読み取れるのはここ) }
   // meta: callExternal 呼び出し時に渡した meta（上では REQUEST_META）
+  // errorReason: response がnullな理由 
 
+  // 受信するJsonの構造
+  // {verify: true, response: responseString}} 
+  // responseString = '{"response": responseBodyString}'}' //reponse内にresponseがある
+  // responseBodyString = '{"unity_pos":{"x":1.2,"y":0.5,"z":-3.4}}' //responseBodyString内にunity_posがある
+  //アクセス手段(短くしたい場合)
+  //const unity_pos = Json.parse(Json.parse(response).response).unity_pos
   $.state.requesting = false;
   $.log("response =>" + response);
   // サーバーとの通信でエラーが発生した場合にその理由を表示
@@ -92,41 +99,26 @@ $.onExternalCallEnd((response, meta, errorReason) => {
       return;
   }
   if (meta !== REQUEST_META) {
-    $.log("Unknown meta in onExternalCallEnd: " + meta);
+      $.log("Unknown meta in onExternalCallEnd: " + meta);
+      return;
   }
   try {
     if (!response) {
       $.log("No response payload");
       return;
     }
-    //clusterが受けれるJsonは
-    //{"key":val,"key2":val2}で、valはstring,number,boolean,null
-    //つまり、objectやarrayは受けれない
-    //なので、response.responseはstringとして受け取る
-    //{"verify":true,"response":"{\"unity_pos\":{\"x\":1.2,\"y\":0.5,\"z\":-3.4}}"}
-    //よって、Json.parseを2回行う
+    // response は JSON 文字列化されたオブジェクトなので parse する
     let parsedResponse = JSON.parse(response);
     $.log("parsedResponse" + parsedResponse);
-    // docs によれば response.response は文字列（最大 100kB）
-    const bodyString = parsedResponse.response;
-    if (!bodyString) {
-      $.log("Empty response.response");
+    
+    const datas = parsedResponse.responsedata;
+    if (!datas) {
+      $.log("Empty response.responsedata");
       return;
     }
 
-    // 期待するフォーマット例: '{"unity_pos":{"x":1.2,"y":0.5,"z":-3.4}}'
-    let posObj = null;
-    try {
-      posObj = JSON.parse(bodyString);
-      $.log("parsed position object: " + posObj);
-    } catch (e) {
-      // サーバーが plain text を返す可能性もあるのでログ出し
-      $.log("failed to parse response.response as JSON: " + bodyString);
-      return;
-    }
-
-    if (typeof posObj.unity_pos.x === "number" && typeof posObj.unity_pos.y === "number" && typeof posObj.unity_pos.z === "number") {
-      const newPos = new Vector3(posObj.x, posObj.y, posObj.z);
+    if (typeof datas.unity_pos.x === "number" && typeof datas.unity_pos.y === "number" && typeof datas.unity_pos.z === "number") {
+      const newPos = new Vector3(datas.unity_pos.x, datas.unity_pos.y, datas.unity_pos.z);
       $.log(`parsed position: (${newPos.x}, ${newPos.y}, ${newPos.z})`);
       // 位置設定の方法は対象（PlayerScript / ItemScript / SubNode）によって変わります。
       if (target && typeof target.setPosition === "function") {
@@ -141,7 +133,7 @@ $.onExternalCallEnd((response, meta, errorReason) => {
         $.log("No suitable API to set position available in this context.");
       }
     } else {
-      $.log("Response JSON missing x,y,z numeric fields: " + JSON.stringify(posObj));
+      $.log("Response JSON missing x,y,z numeric fields: " + JSON.stringify(datas));
     }
   } catch (e) {
     $.log("onExternalCallEnd error: " + e);
@@ -149,8 +141,7 @@ $.onExternalCallEnd((response, meta, errorReason) => {
     onExternalCallEnd error: TypeError: No public methods with the specified arguments were found.
     */
   }
-}
-);
+});
 
 /*
 Json.stringify と Json.parse は玉ねぎ
@@ -222,5 +213,4 @@ Json.stringify(json) =
     "key7" : "{\"key1\":{object as string}}"
   }
 } 
-
 */
