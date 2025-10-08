@@ -1,0 +1,46 @@
+{
+    "triggers":[
+        {
+            "category": "SetPlanePosion",
+            "showConfirmDialog": false,	
+            "displayName": "SetPlanePosion",
+            "state":[
+                {
+                    "key": "planePosition.x",
+                    "type":"float",
+                    "value":1
+                },
+                {
+                    "key": "planePosition.y",
+                    "type":"float",
+                    "value": 2
+                },
+                {
+                    "key": "planePosition.z",
+                    "type":"float",
+                    "value": 3
+                },
+                {
+                    "key": "planeRotation.x",
+                    "type":"float",
+                    "value": 4
+                },
+                {
+                    "key": "planeRotation.y",
+                    "type":"float",
+                    "value": 4
+                },
+                {
+                    "key": "planeRotation.z",
+                    "type":"float",
+                    "value": 6
+                },
+                {
+                    "key": "planeSpeed",
+                    "type":"float",
+                    "value": 7
+                }
+            ]
+        }
+    ]
+}
