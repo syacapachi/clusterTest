@@ -5,33 +5,36 @@
 
 // ====== 設定 ======
 const ENDPOINT_ID = new ExternalEndpointId("1c66a0dc-4e36-4719-9311-6c4a3083d26e"); // Creator Kit で作成した Endpoint ID（例: "_legacy_single_endpoint" でも可）
-const REQUEST_COOLDOWN = 3.0; // 外部サーバーへ飛ばす間隔（秒）。過負荷にならないよう適切に設定してください。
+const REQUEST_COOLDOWN = 0.4; // 外部サーバーへ飛ばす間隔（秒）。過負荷にならないよう適切に設定してください。
 const REQUEST_META = "setPositionFromServer"; // 任意のメタ文字列（サーバー側で識別に使える）
 // ==================
 
 // 操作対象の SubNode（アイテム内の移動対象ノード名）を取得
 // ルート自分自身を動かすなら $.subNode("") ではなく $.setPosition 等を使う（下の例は subnode を想定）
 const TARGET_NODE_NAME = "ModelParent"; // 空文字列ならアイテム本体（ルート）を想定
-let target = null;
+
+$.onRide(isGetOn =>{
+  $.state.target = isGetOn ? $.subNode(TARGET_NODE_NAME) : null;
+})
 
 $.onStart(() => {
   // 対象ノードを見つける（なければルートとして扱う）
   try {
     if (TARGET_NODE_NAME && TARGET_NODE_NAME.length > 0) {
-      target = $.subNode(TARGET_NODE_NAME);
-      $.log("target node: " + TARGET_NODE_NAME + " -> " + (target ? "found" : "NOT found"));
+      $.state.target = $.subNode(TARGET_NODE_NAME);
+      $.log("target node: " + TARGET_NODE_NAME + " -> " + ($.state.target ? "found" : "NOT found"));
     } else {
       // ルートの SubNode を取得（API により null/undefined の場合があるので guard）
-      target = $.subNode("");
-      if (!target) {
+      $.state.target = $.subNode("");
+      if (!$.state.target) {
         // fallback: top-level の setPosition がサポートされている場合は $.setPosition を使う
-        target = null;
+        $.state.target = null;
       }
-      $.log("target node: root -> " + (target ? "found subNode" : "use top-level setPosition if available"));
+      $.log("target node: root -> " + ($.state.target ? "found subNode" : "use top-level setPosition if available"));
     }
   } catch (e) {
     $.log("target node get error: " + e);
-    target = null;
+    $.state.target = null;
   }
 
   // 初期 state を用意
@@ -39,7 +42,7 @@ $.onStart(() => {
   $.state.requesting = false;
 
   // 初回リクエスト（任意）
-  sendPositionRequest();
+  //sendPositionRequest();
 });
 
 $.onUpdate((deltaTime) => {
@@ -59,8 +62,8 @@ function sendPositionRequest() {
     // 必要に応じて player 情報や itemId などを含める（ただしプライバシーに注意）
     const payload = {
       type: "getTargetPosition",
-      itemId: $.getItemHandle ? $.getItemHandle().id : null, // 存在する API の場合のみ
-      timestamp: Date.now()
+      // itemId: $.getItemHandle ? $.getItemHandle().id : null, // 存在する API の場合のみ
+      // timestamp: Date.now()  //送信データを最小限にした  
     };
     const requestString = JSON.stringify(payload);
 
@@ -72,7 +75,7 @@ function sendPositionRequest() {
     // endpointId: ExternalEndpointId オブジェクト（または legacy ID）
     // requestString: サーバーへ送った文字列
     $.state.requesting = true;
-    $.log("callExternal sent: " + requestString);
+    //$.log("callExternal sent: " + requestString);
   } catch (e) {
     $.log("callExternal error: " + e);
     $.state.requesting = false;
@@ -92,7 +95,7 @@ $.onExternalCallEnd((response, meta, errorReason) => {
   //アクセス手段(短くしたい場合)
   //const unity_pos = Json.parse(Json.parse(response).response).unity_pos
   $.state.requesting = false;
-  $.log("response =>" + response);
+  //$.log("response =>" + response);
   // サーバーとの通信でエラーが発生した場合にその理由を表示
   if (response == null) {
       $.log("callExternal ERROR: " + errorReason);
@@ -109,7 +112,6 @@ $.onExternalCallEnd((response, meta, errorReason) => {
     }
     // response は JSON 文字列化されたオブジェクトなので parse する
     let parsedResponse = JSON.parse(response);
-    $.log("parsedResponse" + parsedResponse);
     
     const datas = parsedResponse.responsedata;
     if (!datas) {
@@ -119,16 +121,16 @@ $.onExternalCallEnd((response, meta, errorReason) => {
 
     if (typeof datas.unity_pos.x === "number" && typeof datas.unity_pos.y === "number" && typeof datas.unity_pos.z === "number") {
       const newPos = new Vector3(datas.unity_pos.x, datas.unity_pos.y, datas.unity_pos.z);
-      $.log(`parsed position: (${newPos.x}, ${newPos.y}, ${newPos.z})`);
+      //$.log(`parsed position: (${newPos.x}, ${newPos.y}, ${newPos.z})`);
       // 位置設定の方法は対象（PlayerScript / ItemScript / SubNode）によって変わります。
-      if (target && typeof target.setPosition === "function") {
+      if ($.state.target && typeof $.state.target.setPosition === "function") {
         // SubNode あるいはサブノードを動かす場合
-        target.setPosition(newPos);
-        $.log(`moved target node to (${newPos.x}, ${newPos.y}, ${newPos.z})`);
+        $.state.target.setPosition(newPos);
+        //$.log(`moved target node to (${newPos.x}, ${newPos.y}, ${newPos.z})`);
       } else if (typeof $.setPosition === "function") {
         // ルートのアイテム自体を動かす（トップレベル setPosition がサポートされていれば）
         $.setPosition(newPos);
-        $.log(`moved item to (${newPos.x}, ${newPos.y}, ${newPos.z})`);
+        //$.log(`moved item to (${newPos.x}, ${newPos.y}, ${newPos.z})`);
       } else {
         $.log("No suitable API to set position available in this context.");
       }
